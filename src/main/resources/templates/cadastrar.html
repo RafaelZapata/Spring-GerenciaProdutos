@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Cadastrar Produto</title>
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+        <div>
+            <h1>Cadastrar Produto</h1>
+            <form th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post" enctype="multipart/form-data">
+                
+                <label for="#ids.next('nome')" th:text="'Nome:'"/>
+                <input type="text" th:field="*{nome}"/><br/>
+                <label for="#ids.next('preco')" th:text="'Preco:'"/>
+                <input type="text" th:field="*{preco}"/><br/>
+                <label for="#ids.next('quantidade')" th:text="'Quantidade:'"/>
+                <input type="text" th:field="*{quantidade}"/><br/>
+                <label for="#ids.next('marca')" th:text="'Marca:'"/>
+                <input type="text" th:field="*{marca}"/><br/>
+                <label for="#ids.next('categoria')" th:text="'Categoria:'"/>
+                <input type="text" th:field="*{categoria}"/><br/>
+                <label for="file" text="Imagem:"/>
+                <input type="file" id="file" name="file"/><br/>
+                <br/>
+                <input type="submit" value="salvar"/>
+            </form>
+        </div>
+    </body>
+</html>

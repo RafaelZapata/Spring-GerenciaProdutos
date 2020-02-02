@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: bsi.springWeb.trabalhop2.Trabalhop2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.006 s - in bsi.springWeb.trabalhop2.Trabalhop2ApplicationTests
