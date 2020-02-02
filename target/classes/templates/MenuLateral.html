@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Menu Lateral</title>
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/sidebar/sidebar.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
+    </head>
+    <body>
+	<div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"><a href="#"> Happy Pet </a></li>
+                    <li><a th:href='@{/produtos}'>Lista de Produtos</a></li>
+                    <li><a th:href='@{/produtos/cadastrar}'>Cadastrar Produtos</a></li>
+<!--                    <li><a th:href='@{/usuarios}'>Usuarios</a></li>
+                    <li><a th:href='@{/usuarios/cadastrar}'}'>Cadastrar Usuarios</a></li>-->
+                </ul>
+            </div>
+            <a href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" id="menu-toggle" style="text-decoration: none; color: black"></a>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section layout:fragment="conteudo"></section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+	</div>
+	<script src="/sidebar/sidebar.js"></script>
+    </body>
+</html>

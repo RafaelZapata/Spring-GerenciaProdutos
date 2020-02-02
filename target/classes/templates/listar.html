@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="MenuLateral">
     <head>
         <title>Listar Produtos</title>
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet" />
         <meta charset="UTF-8">
     </head>
     <body>
-        <div>Listar</div>
-        <p><a th:href="@{/produtos/cadastrar}">Cadastrar</a></p>
-        <table>
+        <section layout:fragment="conteudo">
+            <div class="panel panel-primary" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Lista de Animais</h1>
+                </div>
+                <div class="panel-body">
+                    <table>
             <tr th:each="produto : ${lista}">
                 <td hidden="true" th:text="${produto.id}"></td>
                 <td th:text="${produto.nome}"></td>
@@ -30,5 +40,7 @@
             <input type="text" name="campoBusca"></input>
             <input type="submit" value="Buscar">
         </form>
+        </div>
+        </section>
     </body>
 </html>

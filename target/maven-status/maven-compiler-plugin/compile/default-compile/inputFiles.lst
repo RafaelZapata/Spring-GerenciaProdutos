@@ -4,6 +4,7 @@
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/repository/PermissaoRepository.java
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/controller/FilesController.java
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/security/MeuUsuarioService.java
+/home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/controller/HomeController.java
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/repository/UsuarioRepository.java
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/model/Usuario.java
 /home/rafael-zapata/NetBeansProjects/TrabalhoSpringWeb/src/main/java/bsi/springWeb/trabalhop2/Trabalhop2Application.java

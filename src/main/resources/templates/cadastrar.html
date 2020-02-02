@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorator="MenuLateral">
     <head>
         <title>Cadastrar Produto</title>
         <meta charset="UTF-8">
         
     </head>
     <body>
-        <div>
-            <h1>Cadastrar Produto</h1>
-            <form th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post" enctype="multipart/form-data">
-                
-                <input type="hidden" th:field="*{id}"/>
+        <section layout:fragment="conteudo">
+        <div class="panel panel-primary" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Cadastro de Produtos</h1>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline" th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post" enctype="multipart/form-data" style="margin:20px 0">
+                        <div class="form-group">
+                            <input type="hidden" th:field="*{id}"/>
                 <input type="hidden" th:field="*{imagem}"/>
                 <label for="#ids.next('nome')" th:text="'Nome:'"/>
                 <input type="text" th:field="*{nome}"/><br/>
@@ -25,8 +32,10 @@
                 <label for="file" text="Imagem:"/>
                 <input type="file" id="file" name="file"/><br/>
                 <br/>
-                <input type="submit" value="salvar"/>
-            </form>
-        </div>
+                <input type="submit" value="salvar" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+            </section>
     </body>
 </html>
