@@ -7,5 +7,4 @@ bsi/springWeb/trabalhop2/Trabalhop2Application.class
 bsi/springWeb/trabalhop2/model/Usuario.class
 bsi/springWeb/trabalhop2/model/Permissao.class
 bsi/springWeb/trabalhop2/model/Produto.class
-bsi/springWeb/trabalhop2/controller/ProdutoController.class
 bsi/springWeb/trabalhop2/repository/PermissaoRepository.class

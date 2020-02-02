@@ -83,4 +83,10 @@ public class ProdutoController {
         
         return "redirect:../produtos";
     }
+    
+    @PostMapping(path = "/pesquisar")
+    public String findByName(@RequestParam("campoBusca") String campoBusca, Model model){
+        model.addAttribute("lista", repo.findByNomeContainingIgnoreCase(campoBusca));
+        return "listar";
+    }
 }

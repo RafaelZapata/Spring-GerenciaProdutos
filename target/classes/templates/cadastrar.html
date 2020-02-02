@@ -10,6 +10,8 @@
             <h1>Cadastrar Produto</h1>
             <form th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post" enctype="multipart/form-data">
                 
+                <input type="hidden" th:field="*{id}"/>
+                <input type="hidden" th:field="*{imagem}"/>
                 <label for="#ids.next('nome')" th:text="'Nome:'"/>
                 <input type="text" th:field="*{nome}"/><br/>
                 <label for="#ids.next('preco')" th:text="'Preco:'"/>

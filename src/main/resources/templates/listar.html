@@ -24,5 +24,11 @@
         	</td>
             </tr>
         </table>
+        <div>Search</div>
+        <form th:action="@{/produtos/pesquisar}" method="post">
+            <label for="buscar">Pesquisar:</label>
+            <input type="text" name="campoBusca"></input>
+            <input type="submit" value="Buscar">
+        </form>
     </body>
 </html>
