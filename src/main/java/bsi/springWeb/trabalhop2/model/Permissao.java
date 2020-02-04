@@ -18,6 +18,13 @@ public class Permissao implements Serializable {
     @ManyToMany(mappedBy = "permissoes")
     private List<Usuario> usuarios;
 
+    public Permissao(){}
+    
+    public Permissao(String nome, Long id) {
+        this.nome = nome;
+        this.id = id;
+    }
+
     public List<Usuario> getUsuarios() {
         return usuarios;
     }

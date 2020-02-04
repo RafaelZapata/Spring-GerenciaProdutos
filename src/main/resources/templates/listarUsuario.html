@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorator="menuLateral">
+    <head>
+        <title>Lista de Produtos</title>
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet" />
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <section layout:fragment="conteudo">
+            <div class="panel panel-primary" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Lista de Usuários</h1>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <div>Search
+                        <form class="form-inline" th:action="@{/usuarios/pesquisar}" method="post">
+                            <label for="buscar">Pesquisar:</label>
+                            <input class="form-control" type="text" name="campoBusca"></input>
+                            <input type="submit" value="Buscar">
+                        </form>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>Login</th>
+                                <th>Permissões</th>
+                                <th colspan="2">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="usuario : ${lista}">
+                                <td hidden="true" th:text="${usuario.id}"></td>
+                                <td th:text="${usuario.login}"></td>
+                                <td>
+                                    <table>
+                                        <tr th:each="permissao : ${usuario.permissoes}">
+                                            <td th:text="${permissao.nome}"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td><a th:href="@{/usuarios/alterar/}+${usuario.id}" class="glyphicon glyphicon-pencil">Alterar</a></td>
+                                <td><a th:href="@{/usuarios/delete/}+${usuario.id}" class="glyphicon glyphicon-trash">Excluir</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </section>
+    </body>
+</html>

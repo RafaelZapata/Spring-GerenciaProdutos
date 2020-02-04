@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorator="menuLateral">
+    <head>
+        <title>Cadastrar Produto</title>
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+        <section layout:fragment="conteudo">
+        <div class="panel panel-primary" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Cadastro de Usuarios</h1>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline" th:action="@{/usuarios/cadastrar}" th:object="${usuario}" method="post" enctype="multipart/form-data" style="margin:20px 0">
+                        <div class="form-group">
+                            <ul th:if="${#fields.hasErrors('*')}">
+                                <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+                            </ul>
+                            <input type="hidden" th:field="*{id}"/>
+                            <label for="#ids.next('login')" th:text="'Login:'"/>
+                            <input class="form-control" type="text" th:field="*{login}"/><br/>
+                            <label for="#ids.next('senha')" th:text="'Senha:'"/>
+                            <input class="form-control" type="password" th:field="*{senha}"/><br/>
+                            <label for="#ids.next('permissoes')" th:field="'Permissoes'"></label>
+                            <input class="form-control" type="checkbox" name="permissao" value="ADMIN">Administrador</input>
+                            <input class="form-control" type="checkbox" name="permissao" value="COMUM">Comum</input>
+                            <br/>
+                            <input type="submit" value="salvar" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+            </section>
+    </body>
+</html>

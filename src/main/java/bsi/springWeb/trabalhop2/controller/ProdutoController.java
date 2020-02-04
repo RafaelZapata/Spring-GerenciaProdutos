@@ -42,9 +42,9 @@ public class ProdutoController {
     
     @GetMapping("/alterar/{id}")
     public String alterar(@PathVariable("id") Long id, Model model){
-        Optional<Produto> findById = repo.findById(id);
-        if(findById.isPresent()){
-            model.addAttribute("produto", repo.findById(id).get());
+        Optional<Produto> produ = repo.findById(id);
+        if(produ.isPresent()){
+            model.addAttribute("produto", produ.get());
             return "cadastrar";
         }else{
             return "redirect:../../produtos";

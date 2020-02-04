@@ -3,9 +3,9 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      layout:decorator="MenuLateral">
+      layout:decorator="menuLateral">
     <head>
-        <title>Listar Produtos</title>
+        <title>Lista de Produtos</title>
         <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" />
         <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet" />
         <meta charset="UTF-8">
@@ -14,33 +14,43 @@
         <section layout:fragment="conteudo">
             <div class="panel panel-primary" style="margin: 10px">
                 <div class="panel-heading">
-                    <h1 class="panel-title">Lista de Animais</h1>
+                    <h1 class="panel-title">Lista de Produtos</h1>
+                </div>
+                <div>
+                    <form class="form-inline" th:action="@{/produtos/pesquisar}" method="post">
+                        <label for="buscar">Pesquisar:</label>
+                        <input class="form-control" type="text" name="campoBusca"></input>
+                        <input type="submit" value="Buscar">
+                    </form>
                 </div>
                 <div class="panel-body">
-                    <table>
-            <tr th:each="produto : ${lista}">
-                <td hidden="true" th:text="${produto.id}"></td>
-                <td th:text="${produto.nome}"></td>
-                <td><img th:src="${produto.imagem}"/></td>
-                <td th:text="${produto.preco}"></td>
-                <td th:text="${produto.quantidade}"></td>
-                <td th:text="${produto.marca}"></td>
-                <td th:text="${produto.categoria}"></td>
-                <td>
-                    <a th:href="@{/produtos/alterar/}+${produto.id}">Alterar</a>
-        	</td>
-                <td>
-                    <a th:href="@{/produtos/delete/}+${produto.id}">Excluir</a>
-        	</td>
-            </tr>
-        </table>
-        <div>Search</div>
-        <form th:action="@{/produtos/pesquisar}" method="post">
-            <label for="buscar">Pesquisar:</label>
-            <input type="text" name="campoBusca"></input>
-            <input type="submit" value="Buscar">
-        </form>
-        </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Imagem</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>Marca</th>
+                                <th>Categoria</th>
+                                <th colspan="2">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="produto : ${lista}">
+                                <td hidden="true" th:text="${produto.id}"></td>
+                                <td th:text="${produto.nome}"></td>
+                                <td><img th:src="${produto.imagem}" height="75" width="100"/></td>
+                                <td th:text="${produto.preco}"></td>
+                                <td th:text="${produto.quantidade}"></td>
+                                <td th:text="${produto.marca}"></td>
+                                <td th:text="${produto.categoria}"></td>
+                                <td><a th:href="@{/produtos/alterar/}+${produto.id}" class="glyphicon glyphicon-pencil">Alterar</a></td>
+                                <td><a th:href="@{/produtos/delete/}+${produto.id}" class="glyphicon glyphicon-trash">Excluir</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
         </section>
     </body>
 </html>
